@@ -12,7 +12,7 @@ def content_gap_analysis(keywords):
     # Calculate mean interest for each keyword
     keyword_interest = {}
     for keyword in keywords:
-        keyword_interest[keyword] = mean_interest.get(keyword)
+        keyword_interest[keyword] = mean_interest[keyword]
 
     # Sort keywords by mean interest
     sorted_keywords = sorted(keyword_interest.items(), key=lambda x: x[1], reverse=True)
@@ -50,15 +50,7 @@ def main():
             else:
                 st.write("     - According to Google Trends, This keyword has low search volume and may be niche. While it may not have a large audience, targeting niche keywords can help attract highly relevant traffic.")
             st.write("")
-            st.write("")
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
 
