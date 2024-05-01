@@ -1,18 +1,12 @@
 import streamlit as st
+import numpy as np
+import pandas as pd
 from pytrends.request import TrendReq
 
 # Function to perform content gap analysis
-def content_gap_analysis(keywords):
-    pytrends = TrendReq(hl='en-US', tz=360)
-    pytrends.build_payload(keywords, cat=0, timeframe='today 5-y', geo='', gprop='')
-
-    interest_over_time_df = pytrends.interest_over_time()
-    mean_interest = interest_over_time_df.mean()
-
+def content_gap_analysis(keywords, mean_interest):
     # Calculate mean interest for each keyword
-    keyword_interest = {}
-    for keyword in keywords:
-        keyword_interest[keyword] = mean_interest[keyword]
+    keyword_interest = {keyword: mean_interest[keyword] for keyword in keywords}
 
     # Sort keywords by mean interest
     sorted_keywords = sorted(keyword_interest.items(), key=lambda x: x[1], reverse=True)
@@ -31,7 +25,13 @@ def main():
         keywords = [keyword.strip() for keyword in keywords_input.split(",")]
 
         # Perform content gap analysis
-        sorted_keywords = content_gap_analysis(keywords)
+        pytrends = TrendReq(hl='en-US', tz=360)
+        pytrends.build_payload(keywords, cat=0, timeframe='today 5-y', geo='', gprop='')
+
+        interest_over_time_df = pytrends.interest_over_time()
+        mean_interest = interest_over_time_df.mean().to_dict()
+
+        sorted_keywords = content_gap_analysis(keywords, mean_interest)
 
         # Display results
         st.write("**Mean Interest Scale:**")
@@ -53,4 +53,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
