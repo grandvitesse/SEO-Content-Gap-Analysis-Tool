@@ -15,7 +15,7 @@ def content_gap_analysis(keywords, mean_interest):
 
 # Main function
 def main():
-    st.title("Watr.seo : SEO Content Gap Analysis Tool")
+    st.title("Watr.seo : Content Gap Analysis Tool")
 
     # User input for keywords
     keywords_input = st.text_input("Enter keywords (comma-separated) Disclaimer: 5-word limit:")
@@ -23,8 +23,6 @@ def main():
     if st.button("Perform Analysis"):
         # Split keywords input by comma and remove leading/trailing whitespace
         keywords = [keyword.strip() for keyword in keywords_input.split(",")]
-        
-        st.write("**How it works?**")
         
         # Perform content gap analysis
         pytrends = TrendReq(hl='en-US', tz=360)
@@ -44,6 +42,7 @@ def main():
         st.write("- Moderate: 26-50")
         st.write("- High: 51-100")
         st.write("")
+        st.write("------------------------------------------------------------------------------------------")
         st.subheader("Content Gap Analysis Results:")
         st.write("")
         for keyword, interest in sorted_keywords:
