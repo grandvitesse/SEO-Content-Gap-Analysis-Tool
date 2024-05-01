@@ -12,7 +12,7 @@ def content_gap_analysis(keywords):
     # Calculate mean interest for each keyword
     keyword_interest = {}
     for keyword in keywords:
-        keyword_interest[keyword] = mean_interest[keyword]
+        keyword_interest[keyword] = mean_interest.get(keyword)
 
     # Sort keywords by mean interest
     sorted_keywords = sorted(keyword_interest.items(), key=lambda x: x[1], reverse=True)
