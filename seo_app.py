@@ -15,7 +15,7 @@ def content_gap_analysis(keywords, mean_interest):
 
 # Main function
 def main():
-    st.title("SEO Content Gap Analysis Tool")
+    st.title("Watr.seo : Content Gap Analysis Tool")
 
     # User input for keywords
     keywords_input = st.text_input("Enter keywords (comma-separated) Disclaimer: 5-word limit:")
@@ -34,6 +34,9 @@ def main():
         sorted_keywords = content_gap_analysis(keywords, mean_interest)
 
         # Display results
+        st.write("**How it works?**")
+        st.write("**Functionality**: The SEO Content Gap Analysis Tool leverages Google Trends data to categorize keywords by interest level, providing insights into trending topics for content optimization. It streamlines the process of identifying high-impact keywords**")
+        st.write("**Business Problem**: By enabling businesses to analyze SEO content gaps, the tool facilitates informed content strategy decisions, leading to improved search engine visibility, higher organic traffic, and enhanced online presence**")
         st.write("**Mean Interest Scale:**")
         st.write("- Low: 0-25")
         st.write("- Moderate: 26-50")
