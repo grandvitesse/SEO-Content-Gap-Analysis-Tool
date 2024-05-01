@@ -1,5 +1,4 @@
-from collections import abc,  Counter, defaultdict, namedtuple, OrderedDict
-from collections.abc import Iterable
+from typing import Iterable
 import streamlit as st
 from pytrends.request import TrendReq
 
