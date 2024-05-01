@@ -34,18 +34,15 @@ def main():
         sorted_keywords = content_gap_analysis(keywords)
 
         # Display results
-     
         st.write("**Mean Interest Scale:**")
         st.write("- Low: 0-25")
         st.write("- Moderate: 26-50")
         st.write("- High: 51-100")
         st.write("")
         st.subheader("Content Gap Analysis Results:")
-        #st.write("**Disclaimer: Analysis Results: **")
         st.write("")
         for keyword, interest in sorted_keywords:
             st.write(f"- **Keyword:** {keyword}, **Mean Interest:** {interest:.2f}")
-            #st.write("   - ")
             if interest > 50:
                 st.write("     - According to Google Trends, This keyword has high search volume and is popular. It's a good candidate for creating content as it can attract a large audience.")
             elif interest > 25:
