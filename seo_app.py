@@ -1,4 +1,3 @@
-from typing import Iterable
 import streamlit as st
 from pytrends.request import TrendReq
 
@@ -58,6 +57,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
